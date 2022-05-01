@@ -1,0 +1,51 @@
+/vendor/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+public_html/storage
+public_html/hot
+
+# laravel-mix
+/public/js
+/public/css
+/public/build
+/public/mix-manifest.json
+/public/images
+/public/vendor
+/public/fonts
+/public/uploads
+
+storage/*.key
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpunit.result.cache
+
+# Docker
+/docker/containers/mysql/db/
+/docker/containers/localstack/
+
+# ide
+/.idea
+
+# ide helper
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+
+# constant generate
+resources/js/common/configs/constantGenerate.js
+
+composer.lock
+package-lock.json

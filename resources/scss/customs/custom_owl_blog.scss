@@ -1,0 +1,31 @@
+#blog-owl .owl-nav .owl-prev span, .blog-owl .owl-nav .owl-next span {
+    font-size: 1.6875rem;
+    color: gray !important;
+    line-height: 20px!important;
+}
+
+#blog-owl .owl-carousel .owl-nav {
+    button {
+        width: 40px!important;
+        height: 40px!important;
+    }
+    button.owl-prev {
+        background: white!important;
+        border-radius: 50%;
+        top: 30%;
+        left: -2%;
+        box-shadow: 0px 0px 6px #00000029;
+    }
+
+    button.owl-next {
+        background: white!important;
+        border-radius: 50%;
+        top: 30%;
+        right: -2%;
+        box-shadow: 0px 0px 6px #00000029;
+    }
+}
+
+#blog-owl .owl-theme .owl-dots{
+    display: none;
+}

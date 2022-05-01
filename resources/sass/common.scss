@@ -1,0 +1,177 @@
+@import './_variables';
+
+html, body {
+    color: $base-font-color;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    word-break: break-word;
+}
+
+#app-member {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.main-form {
+    background-color: $form-bg-color !important;
+}
+
+.error-message {
+    color: $sub-color;
+}
+.mt-6px {
+    margin-top: 6px;
+}
+.mt-11px {
+    margin-top: 11px;
+}
+.mt-16 {
+    margin-top: 16px;
+}
+.mt-30px {
+    margin-top: 30px;
+}
+.ml-10px {
+    margin-left: 10px;
+}
+.ml-20px {
+    margin-left: 20px;
+}
+.mr-10px {
+    margin-right: 10px;
+}
+.mr-20px {
+    margin-right: 20px;
+}
+.pb-20 {
+    padding-bottom: 20px;
+}
+
+.cancel-button {
+    background-color: $third-color !important;
+    border-color: $third-color !important;
+}
+
+.main-button {
+    background-color: $main-color !important;
+    border-color: $main-color !important;
+}
+
+.fz-35 {
+    font-size: 35px;
+}
+.fz-13 {
+    font-size: 13px;
+}
+.fz-14 {
+    font-size: 14px;
+}
+
+.fz-18 {
+    font-size: 18px;
+}
+
+.text-black {
+    color: $black;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+// width
+.mw-458 {
+    max-width: 458px;
+}
+.max-w-460 {
+    max-width: 460px;
+}
+.max-w-640 {
+    max-width: 640px;
+}
+
+/* form  */
+.form-label {
+    min-width: 126px;
+}
+.validate-error,
+.error-message {
+    margin-top: 10px !important;
+    font-size: 13px;
+}
+
+/* direction */
+.rtl {
+    direction: rtl;
+}
+
+/* bg color */
+
+.main-bg-color {
+    background-color: $main-color;
+}
+
+.light-main-bg-color {
+    background-color: $light-main_color;
+}
+
+.sub-bg-color {
+    background-color: $sub-color;
+}
+
+.third-bg-color {
+    background-color: $third-color;
+}
+
+.notification-bg-color {
+    background-color: $notification-color;
+}
+
+.toast-bg-color {
+    background-color: var(--color-primary);
+}
+
+@variants hover {
+    .hover-bg-color {
+        background-color: $green-hover-bg-color;
+    }
+}
+
+/* font-size */
+.text-xss {
+    font-size: 0.5rem;
+    line-height: 0.75rem;
+}
+
+/* font-color */
+.sub-color {
+    color: $sub-color;
+}
+
+.text-app-green {
+    color: $green-font-color;
+}
+.text-primary {
+    color: var(--color-green-dark);
+}
+.text-green-dark {
+    color: var(--color-green-dark);
+}
+
+
+// layout
+.max-width-1148 {
+    max-width: 1148px;
+}
+
+/* border */
+.notification-border {
+    border-left: 3px solid $notification-color;
+}
+
+/* sizing */
+.h-60-px {
+    height: 60px;
+}
+
+.bg-document-request {
+    background-color: #f8f8f7;
+}

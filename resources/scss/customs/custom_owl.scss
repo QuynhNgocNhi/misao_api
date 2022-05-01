@@ -1,0 +1,118 @@
+.banner-owl {
+    padding: 0px 120px;
+    @include respondto(768){
+        padding: 0;
+    }
+    @include respondto(1000){
+        padding: 0;
+    }
+}
+
+.owl-theme .owl-nav {
+    margin-top: 0;
+}
+.owl-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+}
+.owl-item.active .line {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: fadeInLeft;
+    animation-delay: 0.3s;
+}
+.owl-nav .owl-prev, .owl-nav .owl-next {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.4s ease-out;
+    background: rgba(0, 0, 0, 0.5) !important;
+    width: 40px;
+    cursor: pointer;
+    height: 40px;
+    display: block;
+    z-index: 1000;
+    border-radius: 0;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    @include respondto(767){
+        opacity: 1;
+    }
+}
+#banner-owl .owl-nav .owl-prev {
+    left: 81px!important;
+    @include respondto(768){
+        left: 0px!important;
+    }
+    @include respondto(1000){
+        left: 0px!important;
+    }
+}
+.owl-nav .owl-prev span {
+    font-size: 1.6875rem;
+    color: #fff;
+}
+.owl-nav .owl-prev:focus {
+    outline: 0;
+}
+.owl-nav .owl-prev:hover {
+    background: #000 !important;
+}
+#banner-owl .owl-nav .owl-next {
+    right: 81px!important;
+    @include respondto(768){
+        right: 0px!important;
+    }
+    @include respondto(1000){
+        right: 0px!important;
+    }
+}
+.owl-nav .owl-next span {
+    font-size: 1.6875rem;
+    color: #fff;
+}
+.owl-nav .owl-next:focus {
+    outline: 0;
+}
+.owl-nav .owl-next:hover {
+    background: #000 !important;
+}
+.owl-carousel:hover .owl-prev {
+    left: 0;
+    opacity: 1;
+}
+.owl-carousel:hover .owl-next {
+    right: 0;
+    opacity: 1;
+}
+.owl-theme .owl-nav [class*='owl-'] {
+    height: 60px;
+    margin: 0;
+    padding: 0;
+}
+.owl-carousel.owl-dots-0 .owl-dots{
+    bottom: 0;
+}
+.image-thumbs .item:after {
+    background: rgba(0,0,0,.5);
+    content: "";
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: opacity .3s;
+    width: 100%;
+}
+.owl-item.active.synced .item:after {
+    opacity: 1;
+}
+.image-thumbs {
+    .item:hover, .item.active{
+        &:after {
+            opacity: 1;
+        }
+    }
+}

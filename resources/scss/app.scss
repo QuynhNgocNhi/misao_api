@@ -1,0 +1,74 @@
+@import "mixins/responsive";
+@import "common";
+
+@tailwind base;
+@tailwind components;
+@layer components {
+    .hidden-scroll{
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    nav[role="navigation"] div:nth-child(2){
+        > div:first-child {
+            display: none;
+        }
+    }
+    .btn {
+        @apply relative font-normal text-base;
+    }
+    .btn-md {
+        @apply h-10 min-h-full;
+    }
+    .btn-lg {
+        @apply px-16;
+    }
+    .btn-icon {
+        i:not(.fa-spinner) {
+            @apply absolute right-2.5 top-1/2 transform -translate-y-1/2;
+        }
+        i.left {
+            @apply absolute left-2.5 top-1/2 transform -translate-y-1/2;
+            right: unset;
+        }
+    }
+    .btn-outline-primary{
+        @apply border border-blue-500 text-blue-500 bg-white font-medium border-2 hover:bg-blue-500 hover:text-white hover:bg-blue-500 hover:border-blue-500;
+    }
+
+    .badge-primary{
+        @apply px-4 py-1 bg-white text-blue-500 rounded border-2 border-blue-500;
+    }
+
+    .breadcrumbs > ul > li + :before {
+        content: '/';
+        transform: unset;
+        border: 0;
+        margin-right: 0.5rem;
+        height: unset;
+    }
+    .collapse-title, .collapse>input[type=checkbox] {
+        @apply py-2 min-h-[1rem]
+    }
+    .checkbox-filter{
+        @apply border-slate-700 rounded-[2px] bg-slate-200
+    }
+    .h-filter{
+        height: calc(100vh - 44px);
+    }
+}
+@tailwind utilities;
+@layer utilities {
+    .badge {
+        @apply bg-slate-200 text-slate-700 font-light text-center leading-none md:leading-normal p-2 md:px-2 md:py-1 rounded-none border-none;
+    }
+}
+
+.table:not(.table-zebra) tbody tr:not(:last-child) td, .table:not(.table-zebra) tbody tr:not(:last-child) th, .table:not(.table-zebra) tfoot tr:not(:last-child) td, .table:not(.table-zebra) tfoot tr:not(:last-child) th, .table:not(.table-zebra) thead tr:not(:last-child) td, .table:not(.table-zebra) thead tr:not(:last-child) th {
+    @apply border-zinc-400;
+}
+.table.table-md{
+    td, th{
+        padding: 0.5rem;
+    }
+}
