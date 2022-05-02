@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductManagerController;
 use App\Http\Controllers\Api\User\Auth\AuthController;
 use App\Http\Controllers\Api\User\Auth\RegisterController;
+use App\Http\Controllers\Api\ChatController;
 use App\Http\Controllers\Api\User\MasterDataController;
 use App\Http\Controllers\Api\User\UserController;
 use App\Http\Controllers\User\AccountController;
@@ -102,9 +103,17 @@ Route::group(['middleware' => ['auth:api']], function (Router $router) {
         ->prefix('order')
         ->group(function (Router $router) {
             $router->get('/', [OrderController::class, 'index'])->name('index');  //ok
-            // $router->get('/buy', [OrderController::class, 'getListHumanBuy'])->name('list_buy');
             $router->get('/{id}', [OrderController::class, 'show'])->name('show'); //ok
             $router->post('/', [OrderController::class, 'store'])->name('store'); //ok
             $router->post('delete', [OrderController::class, 'delete'])->name('delete'); //ok
+        });
+
+    // chat
+    $router->name('chat.')
+        ->prefix('chat')
+        ->group(function (Router $router) {
+            $router->get('/', [ChatController::class, 'room'])->name('room'); //ok
+            $router->get('/{id}/message', [ChatController::class, 'message'])->name('message');
+            $router->post('/{id}/message', [ChatController::class, 'send'])->name('send');
         });
 });

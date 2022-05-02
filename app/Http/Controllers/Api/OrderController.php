@@ -58,6 +58,7 @@ class OrderController extends ApiController
             'user_id' => auth('api')->id()
         ];
         $data = $this->orderService->create($params, auth('api')->user());
+        $data->load(['chat_room']);
         return $this->json($data);
     }
 

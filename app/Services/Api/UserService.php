@@ -13,6 +13,11 @@ class UserService
     {
     }
 
+    public function find($id)
+    {
+        return $this->userRepository->find($id);
+    }
+
     public function show($id = null)
     {
         $id = empty($id) ? auth()->id() : $id;

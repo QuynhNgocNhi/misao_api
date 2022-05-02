@@ -2,11 +2,11 @@
 
 namespace App\Services\Api;
 
-use App\Events\ApplyCar;
 use App\Models\User;
 use App\Repositories\OrderRepository;
 use App\Repositories\ProductRepository;
 use App\Services\Api\UserService;
+use App\Services\Api\ChatService;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +14,7 @@ class OrderService
 {
     public function __construct(
         private OrderRepository $orderRepository,
-        // private ChatService     $chatService,
+        private ChatService     $chatService,
         private UserService     $userService,
         private ProductRepository   $productRepository
     ) {
@@ -55,22 +55,23 @@ class OrderService
     {
         $order = $this->orderRepository->create($params);
         // create chat room
-        // $chatRoom = $order->chat_room()->create([
-        //     'buyer_id'  => $order->user_id,
-        //     'seller_id' => $order->car->user_id,
-        //     'car_id'    => $order->car->id,
-        // ]);
-        // $paramMsg = [
-        //     'chat_room_id' => $chatRoom->id,
-        //     'content'      => Arr::get($params, 'content'),
-        // ];
-        // $this->chatService->sendMessage($paramMsg, $user);
+        $chatRoom = $order->chat_room()->create([
+            'buyer_id'  => $params['user_id'],
+            'seller_id' => $params['user_sell_id'],
+            'product_id'    =>  $params['product_id'],
+            'buy_request_id'    => $params['buy_request_id']
+        ]);
+        $paramMsg = [
+            'chat_room_id' => $chatRoom->id,
+            'content'      => '',
+        ];
+        $this->chatService->sendMessage($paramMsg, $user);
 
-        // $paramMsg = [
-        //     'chat_room_id' => $chatRoom->id,
-        //     'content'      => 'お問い合わせありがとうございます。 内容を確認の上、販売会社様よりメッセージをお送りさせて頂きます。 【注意事項】 ・定休日の場合、ご連絡にお時間をちょうだいする可能性がございます。 ・このメッセージは自動返信されています。'
-        // ];
-        // $this->chatService->sendMessage($paramMsg, $this->userService->find(Arr::get($params, 'user_sell_id')));
+        $paramMsg = [
+            'chat_room_id' => $chatRoom->id,
+            'content'      => ''
+        ];
+        $this->chatService->sendMessage($paramMsg, $this->userService->find(Arr::get($params, 'user_sell_id')));
         return $order;
     }
 
