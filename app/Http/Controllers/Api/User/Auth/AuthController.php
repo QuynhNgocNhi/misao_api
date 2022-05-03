@@ -30,7 +30,7 @@ class AuthController extends ApiController
     public function checkPhoneExists(Request $request)
     {
         $isExists = User::where('status', 1)->where('phone', $request->phone)->exists();
-        return $isExists ? $this->responseSuccess('Phone is found') : $this->responseError('Phone is not found');
+        return $isExists ? $this->json([], 'Phone is found') : $this->json([], 'Phone is not found', 403);
     }
 
     /**
