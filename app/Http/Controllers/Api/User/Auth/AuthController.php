@@ -74,7 +74,11 @@ class AuthController extends ApiController
      */
     public function me()
     {
-        $user = User::where('id', auth('api')->id())->with('followed')->with('following')->first();
+        $user = User::where('id', auth('api')->id())
+        ->with('followed')->with('following')
+        ->with('product')
+        ->with('buyRequest')
+        ->first();
         return $this->json($user);
     }
 
