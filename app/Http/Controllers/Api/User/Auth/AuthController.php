@@ -47,7 +47,7 @@ class AuthController extends ApiController
 
         if (!$token = $this->auth()->attempt(['phone' => $request->phone, 'password' => $request->password, 'status' => 1])) {
             throw ValidationException::withMessages([
-                'phone' => [trans('auth.failed')],
+                'phone' => ['Mật khẩu không đúng!'],
             ]);
         }
 
