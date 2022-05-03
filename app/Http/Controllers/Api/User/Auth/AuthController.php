@@ -117,7 +117,7 @@ class AuthController extends ApiController
         return $this->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => $this->auth()->factory()->getTTL() * 60,
+            'expires_in' => $this->auth()->factory()->getTTL() * 600,
             'user_id' => $this->auth()->id()
         ]);
     }
