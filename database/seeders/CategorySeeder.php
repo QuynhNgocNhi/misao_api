@@ -29,11 +29,31 @@ class CategorySeeder extends Seeder
             ],
             [
                 'name' => 'Sữa, bơ, phô mai',
-                'image_path' => '/images/categories/sua.webP'
+                'image_path' => '/images/categories/sua.webp'
             ],
             [
                 'name' => 'Bánh kẹo',
                 'image_path' => '/images/categories/banh-keo.png'
+            ],
+            [
+                'name' => 'Nguyên liệu',
+                'image_path' => '/images/categories/nguyenLieu.webp'
+            ],
+            [
+                'name' => 'Thực phẩm Việt',
+                'image_path' => '/images/categories/thucPhamViet.webp'
+            ],
+            [
+                'name' => 'Gạo',
+                'image_path' => '/images/categories/gao.webp'
+            ],
+            [
+                'name' => 'Cá',
+                'image_path' => '/images/categories/ca.webp'
+            ],
+            [
+                'name' => 'Dụng cụ',
+                'image_path' => '/images/categories/dungCu.webp'
             ]
         ];
         DB::table('categories')->truncate();
