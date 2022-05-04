@@ -17,19 +17,19 @@ class CategorySeeder extends Seeder
         $input = [
             [
                 'name' => 'Rau củ quả',
-                'image_path' => '/images/categories/rau-cu-qua.jpeg'
+                'image_path' => '/images/categories/rauCuQua.webp'
             ],
             [
                 'name' => 'Trái cây',
-                'image_path' => '/images/categories/trai-cay.jpeg'
+                'image_path' => '/images/categories/traiCay.webp'
             ],
             [
                 'name' => 'Thịt, trứng',
-                'image_path' => '/images/categories/thit-trung.jpeg'
+                'image_path' => '/images/categories/thitTrung.webp'
             ],
             [
                 'name' => 'Sữa, bơ, phô mai',
-                'image_path' => '/images/categories/sua-pho-mai.jpeg'
+                'image_path' => '/images/categories/sua.webP'
             ],
             [
                 'name' => 'Bánh kẹo',
@@ -45,6 +45,5 @@ class CategorySeeder extends Seeder
             ]);
         }, $input);
         DB::table('categories')->insert($data);
-
     }
 }
