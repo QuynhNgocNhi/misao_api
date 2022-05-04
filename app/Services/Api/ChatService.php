@@ -22,7 +22,7 @@ class ChatService
     ) {
     }
 
-    public function getRooms(array $params = [], $limit = PER_PAGE)
+    public function getRooms(array $params = [], $limit = 10)
     {
         $whereEquals = [
             'buyer_id'  => Arr::get($params, 'buyer_id', null),
@@ -52,7 +52,7 @@ class ChatService
         return $this->chatRoomRepository->find($id);
     }
 
-    public function getMessages(array $params, User $user, $limit = PER_PAGE)
+    public function getMessages(array $params, User $user, $limit = 10)
     {
         $roomId = Arr::get($params, 'chat_room_id', null);
         $userId = $user->id;

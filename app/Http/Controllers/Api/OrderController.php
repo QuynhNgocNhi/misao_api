@@ -53,8 +53,8 @@ class OrderController extends ApiController
         }
         $params = [
             'user_sell_id' => $request->user_seller_id,
-            'product_id'       => $request->product_id,
-            'buy_request_id'       => $request->buy_request_id,
+            'product_id'       => $request?->product_id,
+            'buy_request_id'       => $request?->buy_request_id,
             'user_id' => auth('api')->id()
         ];
         $data = $this->orderService->create($params, auth('api')->user());
