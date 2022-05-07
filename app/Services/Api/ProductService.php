@@ -27,7 +27,7 @@ class  ProductService
         $whereEquals   = [
             'user_id' => Arr::get($params, 'user_id'),
             'is_active'  => Arr::get($params, 'is_active'),
-            'category_id'  => Arr::get($params, 'category_id'),
+            'category_id'  =>  Arr::get($params, 'category_id'),
             'is_available'  => Arr::get($params, 'is_available'),
 
         ];

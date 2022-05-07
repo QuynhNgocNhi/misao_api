@@ -66,6 +66,7 @@ Route::group(['middleware' => ['auth:api']], function (Router $router) {
         ->group(function (Router $router) {
             $router->get('/', [ProductController::class, 'index'])->name('index'); //ok
             $router->get('/hot', [ProductController::class, 'hotProductList'])->name('hotProductList'); //ok
+            $router->get('/favorite', [ProductController::class, 'favoriteList'])->name('favoriteList');
             $router->get('/{id}', [ProductController::class, 'show'])->name('show'); //ok
             $router->post('/{id}/favorite', [ProductController::class, 'favorite'])->name('favorite'); //ok
         });
