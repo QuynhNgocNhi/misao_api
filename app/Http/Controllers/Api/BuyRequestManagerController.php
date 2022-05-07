@@ -88,7 +88,11 @@ class BuyRequestManagerController extends ApiController
 
     public function delete($id)
     {
-        $result = $this->buyRequestService->delete($id);
-        return $this->responseSuccess();
+        $result = $this->productService->delete($id);
+        return $this->json(
+            $result ?: [],
+            $result ? 'success' : 'error',
+            $result ? 200 : 400
+        );
     }
 }
