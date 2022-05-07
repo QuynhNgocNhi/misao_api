@@ -90,6 +90,6 @@ class ProductManagerController extends ApiController
     {
 
         $result = $this->productService->delete($id);
-        return $this->responseSuccess();
+        return $this->json([]);
     }
 }
