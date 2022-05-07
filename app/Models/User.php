@@ -71,12 +71,14 @@ class User extends Authenticatable implements JWTSubject
 
     public function product()
     {
-        return $this->hasMany(\App\Models\Product::class, 'user_id', 'id');
+        return $this->hasMany(\App\Models\Product::class, 'user_id', 'id')->with('images')
+        ->with('order');
     }
 
     public function buyRequest()
     {
-        return $this->hasMany(\App\Models\BuyRequest::class, 'user_id', 'id');
+        return $this->hasMany(\App\Models\BuyRequest::class, 'user_id', 'id')->with('images')
+        ->with('order');
     }
 
     /**
