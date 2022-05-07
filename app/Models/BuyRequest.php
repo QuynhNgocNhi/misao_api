@@ -53,7 +53,12 @@ class BuyRequest extends Model
     }
     public function images(): HasMany
     {
-        return $this->hasMany(\App\Models\ProductMedia::class, 'product_id');
+        return $this->hasMany(\App\Models\BuyRequestMedia::class, 'buy_request_id');
+    }
+
+    public function order(): HasMany
+    {
+        return $this->hasMany(\App\Models\Order::class, 'buy_request_id');
     }
 
     public function categories(): HasOne
@@ -63,10 +68,8 @@ class BuyRequest extends Model
 
     public function favorite()
     {
-        return $this->hasOne(\App\Models\ProductFavorite::class, 'product_id');
+        return $this->hasMany(\App\Models\BuyRequestFavorite::class, 'buy_request_id');
     }
-
-
 
     public function getCategoryAttribute()
     {

@@ -24,6 +24,7 @@ class ProductRepository extends BaseRepository
         $sort         = $this->buildSort($params['sort'] ?? []);
         return $this->getModel()
             ->with('images')
+            ->with('order')
             ->when($whereEquals, function ($query) use ($whereEquals) {
                 $query->where($whereEquals);
             })

@@ -59,10 +59,15 @@ class Product extends Model
         return $this->hasMany(\App\Models\ProductMedia::class, 'product_id');
     }
 
+    public function order(): HasMany
+    {
+        return $this->hasMany(\App\Models\Order::class, 'product_id');
+    }
+
 
     public function favorite()
     {
-        return $this->hasOne(\App\Models\ProductFavorite::class, 'product_id');
+        return $this->hasMany(\App\Models\ProductFavorite::class, 'product_id');
     }
 
     public function getCategoryAttribute()

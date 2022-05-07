@@ -23,6 +23,8 @@ class BuyRequestRepository extends BaseRepository
         // $orWheres = $this->cleanValueNull($params['or_wheres'] ?? []);
         $sort         = $this->buildSort($params['sort'] ?? []);
         return $this->getModel()
+            ->with('images')
+            ->with('order')
             ->when($whereEquals, function ($query) use ($whereEquals) {
                 $query->where($whereEquals);
             })
