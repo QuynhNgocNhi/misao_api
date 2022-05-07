@@ -94,6 +94,7 @@ Route::group(['middleware' => ['auth:api']], function (Router $router) {
     $router->name('buy_request')
         ->prefix('buy-request')
         ->group(function (Router $router) {
+            $router->get('/favorite', [BuyRequestController::class, 'favoriteList'])->name('favoriteList');
             $router->get('/', [BuyRequestController::class, 'index'])->name('index'); //ok
             $router->get('/{id}', [BuyRequestController::class, 'show'])->name('show'); //ok
             $router->post('/{id}/favorite', [BuyRequestController::class, 'favorite'])->name('favorite'); //ok
