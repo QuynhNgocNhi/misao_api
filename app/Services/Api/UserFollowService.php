@@ -19,8 +19,8 @@ class UserFollowService
     public function find(array $params)
     {
         $whereEquals = [
-            'product_id'  => Arr::get($params, 'product_id'),
-            'user_id' => Arr::get($params, 'user_id'),
+            'followed_id'  => Arr::get($params, 'followed_id'),
+            'following_id' => Arr::get($params, 'following_id'),
         ];
         $params       = [
             'where_equals' => $whereEquals
