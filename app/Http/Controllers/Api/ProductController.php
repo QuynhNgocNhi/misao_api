@@ -42,7 +42,7 @@ class ProductController extends ApiController
         return $this->json($data);
     }
 
-    public function show($id)
+    public function show(int $id)
     {
         $data = $this->productService->showWithFavorite($id, auth('api')->id());
         return $this->json($data);
