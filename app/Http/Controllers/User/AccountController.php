@@ -31,13 +31,12 @@ class AccountController extends ApiController
 
     public function updateUserProfile(Request $request)
     {
-
+        $paramsUpdate = $request->all();
         if ($request->file('files')) {
             $files = $request->file('files');
             $medias = $this->upload(auth('api')->id(), $files);
+            $paramsUpdate['profile_image'] = $medias['path'];
         }
-        $paramsUpdate = $request->all();
-        $paramsUpdate['profile_image'] = $medias['path'];
         $result = $this->userService->update(auth('api')->id(), $paramsUpdate);
         return $this->json(
             $result ?: [],
