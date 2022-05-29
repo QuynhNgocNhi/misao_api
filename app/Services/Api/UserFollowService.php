@@ -32,15 +32,11 @@ class UserFollowService
     {
         $followedId     = Arr::get($params, 'followed_id');
         $userId    = Arr::get($params, 'following_id');
-        $keyCache  = 'follow' . $followedId . $userId;
-        if (Cache::has($keyCache)) {
-            return 'Vui lòng không gửi yêu cầu liên tục';
-        }
-        Cache::put($keyCache, 'clicked', 2);
         $input = [
             'followed_id'  => $followedId,
             'following_id' => $userId,
         ];
+
         $userFollow       = $this->find($input);
         if ($userFollow) {
             if (is_null($userFollow->deleted_at)) {

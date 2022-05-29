@@ -18,7 +18,7 @@ class UserController extends ApiController
     }
 
 
-    public function follow($userFollowedId)
+    public function follow(int $userFollowedId)
     {
         $params = [
             'followed_id'  => $userFollowedId,
