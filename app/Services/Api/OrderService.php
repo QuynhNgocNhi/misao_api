@@ -5,6 +5,7 @@ namespace App\Services\Api;
 use App\Models\User;
 use App\Repositories\OrderRepository;
 use App\Repositories\ProductRepository;
+use App\Services\Api\NotificationService;
 use App\Services\Api\UserService;
 use App\Services\Api\ChatService;
 use Illuminate\Support\Arr;
@@ -16,7 +17,8 @@ class OrderService
         private OrderRepository $orderRepository,
         private ChatService     $chatService,
         private UserService     $userService,
-        private ProductRepository   $productRepository
+        private ProductRepository   $productRepository,
+        private NotificationService $notificationService
     ) {
     }
 
