@@ -60,6 +60,7 @@ Route::group(['middleware' => ['auth:api']], function (Router $router) {
         ->prefix('user')
         ->group(function (Router $router) {
             $router->post('/{id}/follow', [UserController::class, 'follow'])->name('follow'); //ok
+            $router->get('/{id}', [UserController::class, 'profile'])->name('profile'); //ok
         });
 
     $router->name('product.')

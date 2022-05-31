@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Api\ApiController;
+use App\Models\User;
 use App\Services\Api\UserFollowService;
+use App\Services\Api\UserService;
 
 class UserController extends ApiController
 {
@@ -14,6 +16,7 @@ class UserController extends ApiController
      */
     public function __construct(
         private UserFollowService $userFollowService,
+        private UserService $userService
     ) {
     }
 
@@ -27,4 +30,14 @@ class UserController extends ApiController
         $result = $this->userFollowService->store($params);
         return $this->json([], $result ? 'success' : 'error', $result ? 200 : 400);
     }
+    public function profile(int $userId)
+    {
+        $result = User::with('followed')
+        ->with('following')
+        ->with('product')
+        ->with('buyRequest')->find($userId);
+
+        return $this->json([], $result ? 'success' : 'error', $result ? 200 : 400);
+    }
+
 }
