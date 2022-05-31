@@ -37,7 +37,7 @@ class UserController extends ApiController
         ->with('product')
         ->with('buyRequest')->find($userId);
 
-        return $this->json([], $result ? 'success' : 'error', $result ? 200 : 400);
+        return $this->json($result);
     }
 
 }
