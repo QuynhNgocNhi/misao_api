@@ -72,6 +72,20 @@ class OrderService
             'content'      => ''
         ];
         $this->chatService->sendMessage($paramMsg, $this->userService->find(Arr::get($params, 'user_sell_id')));
+        $dataCreateNotification = [
+            'title'   => 'Thông báo cập nhật',
+            'content' => $params['product_id'] ? 'Bạn có sản phẩm vừa được chốt!' : 'Bạn có tin mua vừa được hỏi thăm!',
+            'user_id' => $params['user_sell_id'],
+            'status'  => 1
+        ];
+        $this->notificationService->create($dataCreateNotification);
+        $dataCreateNotification = [
+            'title'   => 'Thông báo cập nhật',
+            'content' => $params['product_id'] ? 'Chốt sản phẩm thành công' : 'Hỏi thăm tin mua thành công.',
+            'user_id' => $params['user_id'],
+            'status'  => 1
+        ];
+        $this->notificationService->create($dataCreateNotification);
         return $order;
     }
 
@@ -134,10 +148,5 @@ class OrderService
             ->where('user_id', auth()->id())
             ->first();
         return $order ? $order : false;
-    }
-
-    public function getListHumanBuy(array $params, $limit = PER_PAGE)
-    {
-        return $this->orderRepository->filterByCar($params, $limit);
     }
 }

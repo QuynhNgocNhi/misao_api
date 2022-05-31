@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\User\Auth\AuthController;
 use App\Http\Controllers\Api\User\Auth\RegisterController;
 use App\Http\Controllers\Api\ChatController;
 use App\Http\Controllers\Api\User\MasterDataController;
+use App\Http\Controllers\Api\User\NotificationController;
 use App\Http\Controllers\Api\User\UserController;
 use App\Http\Controllers\User\AccountController;
 use Illuminate\Routing\Router;
@@ -117,5 +118,13 @@ Route::group(['middleware' => ['auth:api']], function (Router $router) {
             $router->get('/', [ChatController::class, 'room'])->name('room'); //ok
             $router->get('/{id}/message', [ChatController::class, 'message'])->name('message');
             $router->post('/{id}/message', [ChatController::class, 'send'])->name('send');
+        });
+
+    // notification
+    $router->name('notification.')
+        ->prefix('notification')
+        ->group(function (Router $router) {
+            $router->get('/', [NotificationController::class, 'index'])->name('index');
+            $router->get('/{id}', [NotificationController::class, 'show'])->name('show');
         });
 });

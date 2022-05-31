@@ -6,18 +6,18 @@ use App\Http\Controllers\Api\ApiController;
 use App\Services\Api\NotificationService;
 use App\Services\Api\UserNotificationService;
 
-class NotificationController extends ApiController {
+class NotificationController extends ApiController
+{
     public function __construct(
         private NotificationService $notificationService,
         private UserNotificationService $userNotificationService
-    )
-    {
+    ) {
     }
 
     public function index()
     {
         $params = [
-            'status' => ACTIVE,
+            'status' => 1,
             'user_id' => auth('api')->id(),
         ];
 
