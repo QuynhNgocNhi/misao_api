@@ -33,11 +33,9 @@ class UserController extends ApiController
     public function profile(int $userId)
     {
         $result = User::with('followed')
-        ->with('following')
-        ->with('product')
-        ->with('buyRequest')->find($userId);
-
+            ->with('following')
+            ->with('product')
+            ->with('buyRequest')->find($userId);
         return $this->json($result);
     }
-
 }
