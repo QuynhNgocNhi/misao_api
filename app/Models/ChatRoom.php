@@ -69,7 +69,7 @@ class ChatRoom extends Model
 
     public function buyRequest(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Product::class, 'buy_request_id', 'id');
+        return $this->belongsTo(\App\Models\BuyRequest::class, 'buy_request_id', 'id');
     }
 
     public function order(): BelongsTo
