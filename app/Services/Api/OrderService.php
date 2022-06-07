@@ -88,7 +88,7 @@ class OrderService
             'status'  => 1
         ];
         $this->notificationService->create($dataCreateNotification);
-        return $order;
+        return $this->show($order->id);
     }
 
     public function update($id, array $params)
