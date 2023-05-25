@@ -40,11 +40,11 @@ class UserService
     {
         return [
             "ApiKey" => "172B7865F1CF01A53B2442C2BA4A9C",
-            "Content" => 'IQOSVIETNAM: ' . $otp . ' la Ma OTP de dang ky tai khoan cua quy khach. Ma co hieu luc trong 5 phut iqosvietnam.com.vn',
+            "Content" => 'Misao: ' . $otp . ' la Ma OTP de dang ky tai khoan cua quy khach. Ma co hieu luc trong 5 phut. Tran trong.',
             "Phone" => $phone,
             "SecretKey" => "E1A059FFC584F72ED76BBCB5F444F6",
             "SmsType" => "2",
-            "Brandname" => "IQOSVIETNAM",
+            "Brandname" => "Misao",
             "Sandbox" => "0"
         ];
     }
@@ -65,11 +65,11 @@ class UserService
     {
         return [
             "ApiKey" => "172B7865F1CF01A53B2442C2BA4A9C",
-            "Content" => 'IQOSVIETNAM: ' . $otp . ' la Ma OTP de lay lai mat khau cua quy khach. Ma co hieu luc trong 5 phut iqosvietnam.com.vn',
+            "Content" => 'Misao: ' . $otp . ' la Ma OTP de lay lai mat khau cua quy khach. Ma co hieu luc trong 5 phut. Tran trong.',
             "Phone" => $phone,
             "SecretKey" => "E1A059FFC584F72ED76BBCB5F444F6",
             "SmsType" => "2",
-            "Brandname" => "IQOSVIETNAM",
+            "Brandname" => "Misao",
             "Sandbox" => "0"
         ];
     }

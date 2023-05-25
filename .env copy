@@ -77,6 +77,8 @@ DB_PASSWORD=password
 # (開発時はGoogleなどで取得したSMTPサーバアカウントを使用すること)
 ##################
 
+
+
 MAIL_MAILER=smtp
 MAIL_HOST=smtp.mailtrap.io
 MAIL_PORT=2525
