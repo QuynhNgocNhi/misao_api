@@ -29,22 +29,22 @@ class UserService
         $otp = $this->generateNumericOTP(6);
         $response = Http::withHeaders([
             "content-type" => "application/json"
-        ])->post(self::OTP_URL, $this->prepareParamsRegister($phone, $otp));
+        ])->post(self::OTP_URL, $this->prepareParamsRegister($phone, (string) $otp));
         $result = json_decode($response->body(), true);
         if ($result['CodeResult'] === '100') {
             $this->userOtpService->store($otp, $phone);
         }
         return $result['CodeResult'] === '100' ? $otp : null;
     }
-    function prepareParamsRegister($phone, int $otp)
+    function prepareParamsRegister($phone, string $otp)
     {
         return [
             "ApiKey" => "172B7865F1CF01A53B2442C2BA4A9C",
-            "Content" => 'Misao: ' . $otp . ' la Ma OTP de dang ky tai khoan cua quy khach. Ma co hieu luc trong 5 phut. Tran trong.',
+            "Content" => 'IQOSVIETNAM: ' . (string) $otp . ' la Ma OTP de dang ky tai khoan cua quy khach. Ma co hieu luc trong 5 phut iqosvietnam.com.vn',
             "Phone" => $phone,
             "SecretKey" => "E1A059FFC584F72ED76BBCB5F444F6",
             "SmsType" => "2",
-            "Brandname" => "Misao",
+            "Brandname" => "IQOSVIETNAM",
             "Sandbox" => "0"
         ];
     }
@@ -65,11 +65,11 @@ class UserService
     {
         return [
             "ApiKey" => "172B7865F1CF01A53B2442C2BA4A9C",
-            "Content" => 'Misao: ' . $otp . ' la Ma OTP de lay lai mat khau cua quy khach. Ma co hieu luc trong 5 phut. Tran trong.',
+            "Content" => 'IQOSVIETNAM: ' . (string) $otp . ' la Ma OTP de dang ky tai khoan cua quy khach. Ma co hieu luc trong 5 phut iqosvietnam.com.vn',
             "Phone" => $phone,
             "SecretKey" => "E1A059FFC584F72ED76BBCB5F444F6",
             "SmsType" => "2",
-            "Brandname" => "Misao",
+            "Brandname" => "IQOSVIETNAM",
             "Sandbox" => "0"
         ];
     }
